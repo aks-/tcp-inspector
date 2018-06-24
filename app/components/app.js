@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
-import NetworkInterfaces from '../components/network-interfaces'
+import NetworkInterfacesContainer from '../containers/network-interfaces'
 
 const App = () => (
   <div>
-    <NetworkInterfaces />
+    <NetworkInterfacesContainer />
   </div>
 )
 

@@ -12,7 +12,9 @@
   "license": "MIT",
   "dependencies": {
     "electron": "^2.0.2",
-    "npm": "^6.1.0",
+    "fs-extra": "^6.0.1",
+    "mz": "^2.7.0",
+    "pcap2": "^3.0.4",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",

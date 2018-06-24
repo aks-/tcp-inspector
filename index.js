@@ -1,6 +1,7 @@
 'use strict'
 
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+const getTCPPackets = require('./lib/getTcpPackets')
 
 let win
 
@@ -11,3 +12,11 @@ app.on('ready', () => {
 })
 
 app.on('window-all-closed', () => app.quit())
+
+ipcMain.on('asynchronous-message', (event, arg) => {
+
+  getTCPPackets(arg, data => {
+    event.sender.send('asynchronous-reply', 'pong')
+  })
+
+})
