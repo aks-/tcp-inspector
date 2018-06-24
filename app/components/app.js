@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react'
 import NetworkInterfacesContainer from '../containers/network-interfaces'
+import TCPPacketsScreenContainer from '../containers/tcp-packets-screen'
 
 const App = () => (
-  <div>
+  <Fragment>
     <NetworkInterfacesContainer />
-  </div>
+    <TCPPacketsScreenContainer />
+  </Fragment>
 )
 
 export default App

@@ -1,7 +1,10 @@
 import React from 'react'
 import { networkInterfaces } from 'os'
 
-const NetworkInterfaces = ({ selectInterface }) => {
+const NetworkInterfaces = ({ selectInterface, selectedInterface }) => {
+  if (selectedInterface)
+    return <Fragment></Fragment>
+
   const interfaces = Object.keys(networkInterfaces())
 
   return <ul>{interfaces.map(_interface => {

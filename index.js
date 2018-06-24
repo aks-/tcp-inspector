@@ -2,6 +2,7 @@
 
 const { app, BrowserWindow, ipcMain } = require('electron')
 const getTCPPackets = require('./lib/getTcpPackets')
+const { installModule, removeModule } = require('./lib/manageModules')
 
 let win
 
@@ -13,10 +14,15 @@ app.on('ready', () => {
 
 app.on('window-all-closed', () => app.quit())
 
-ipcMain.on('asynchronous-message', (event, arg) => {
-
+ipcMain.on('selected-interface', (event, arg) => {
   getTCPPackets(arg, data => {
-    event.sender.send('asynchronous-reply', 'pong')
+    event.sender.send('tcp-packet', data)
   })
+})
 
+ipcMain.on('install-parser', (event, arg) => {
+  installModule(arg)
+    .then(() => {
+    })
+    .catch((e) => console.log)
 })
