@@ -26,7 +26,7 @@ const tcpInspectorApp = (state = defaultState, action) => {
       })
     case 'new-packet':
       return Object.assign({}, state, {
-        packets: state.packets.concat[action.packet] 
+        packets: state.packets.concat(action.packet) 
       })
     default:
       return state
