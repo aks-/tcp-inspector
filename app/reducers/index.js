@@ -1,6 +1,6 @@
 const defaultState = {
   interfaces: [],
-  selectedInterface: null,
+  selectedInterface: "en0",
   parsers: []
 }
 
