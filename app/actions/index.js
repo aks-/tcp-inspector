@@ -4,7 +4,7 @@ export const selectInterface = _interface => dispatch => {
   ipc.send('selected-interface', _interface)
   dispatch({ type: 'select-interface' , selectedInterface: _interface })
   ipc.on('tcp-packet', (event, arg) => {
-    console.log(arg)
+    dispatch({ type: 'new-packet', packet: arg })
   })
 }
 

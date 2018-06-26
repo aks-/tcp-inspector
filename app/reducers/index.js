@@ -1,7 +1,9 @@
 const defaultState = {
   interfaces: [],
   selectedInterface: null,
-  parsers: []
+  parsers: [],
+  selectedParser: null,
+  packets: []
 }
 
 const tcpInspectorApp = (state = defaultState, action) => {
@@ -21,6 +23,10 @@ const tcpInspectorApp = (state = defaultState, action) => {
       if (indexOfParser === -1) return state
       return Object.assign({}, state, {
         parsers: state.parsers.splice(indexOfParser, 1)
+      })
+    case 'new-packet':
+      return Object.assign({}, state, {
+        packets: state.packets.concat[action.packet] 
       })
     default:
       return state
