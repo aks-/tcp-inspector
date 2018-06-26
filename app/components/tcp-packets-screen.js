@@ -1,10 +1,22 @@
 import React, { Fragment } from 'react'
+import styled from 'styled-components'
+import Header from './header'
 
-const NetworkInterfaces = ({ parsers, selectedInterface }) => {
-  if (!selectedInterface) return <Fragment></Fragment>
+const Row = styled.p`
+  border-bottom: 1px solid red;
+`
+
+const Packets = ({ packets }) => (<div>
+  {packets.map(( packet, i ) => <Row key={i}>{packet}</Row>)}
+</div>)
+
+const NetworkInterfaces = ({ packets }) => {
+  if (packets.length === 0) {
+    return <Fragment></Fragment>
+  }
 
   return <div>
-    {JSON.stringify(parsers)} - {selectedInterface}
+    <Packets packets={packets}/>
   </div>
 }
 

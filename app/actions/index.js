@@ -11,13 +11,13 @@ export const selectInterface = _interface => dispatch => {
 export const installParser = name => dispatch => {
   ipc.send('install-parser', name)
   ipc.on('installed-parser', () => {
-    console.log('installed parser')
+    dispatch({ type: 'add-parser', parser: name })
   })
 }
 
 export const removeParser = name => dispatch => {
   ipc.send('remove-parser', name)
   ipc.on('removed-parser', () => {
-    console.log('installed parser')
+    dispatch({ type: 'remove-parser', parser: name })
   })
 }

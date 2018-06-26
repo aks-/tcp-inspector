@@ -31,6 +31,15 @@ ipcMain.on('selected-interface', (event, arg) => {
 ipcMain.on('install-parser', (event, arg) => {
   installModule(arg)
     .then(() => {
+      event.sender.send('installed-parser', null)
+    })
+    .catch((e) => console.log)
+})
+
+ipcMain.on('remove-parser', (event, arg) => {
+  removeModule(arg)
+    .then(() => {
+      event.sender.send('removed-parser', null)
     })
     .catch((e) => console.log)
 })

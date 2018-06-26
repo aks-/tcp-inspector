@@ -13,9 +13,9 @@ const tcpInspectorApp = (state = defaultState, action) => {
         selectedInterface: action.selectedInterface
       })
       break;
-    case 'install-parser':
+    case 'add-parser':
       return Object.assign({}, state, {
-        parsers: state.parsers.push(action.parser)
+        parsers: state.parsers.concat([action.parser])
       })
     case 'remove-parser':
       const { parser } = action
